@@ -1,0 +1,18 @@
+{
+  "company": {
+    "name": "회사명",
+    "nameEn": "Company Name",
+    "ceo": "대표자명",
+    "founded": "0000",
+    "businessNumber": "000-00-00000",
+    "tagline": "자연의 맛, 정성의 향",
+    "taglineEn": "Nature's Taste, Crafted with Care",
+    "description": "오랜 전통과 현대적 생산 기술을 결합하여 최고 품질의 식품을 제조합니다.",
+    "contact": {
+      "phone": "0000-0000",
+      "email": "info@company.com",
+      "address": { "full": "00시 00구 00로 000", "postcode": "00000" }
+    },
+    "certifications": [{ "name": "HACCP", "description": "식품안전관리인증", "year": "2022" }]
+  }
+}

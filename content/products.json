@@ -1,0 +1,27 @@
+[
+  {
+    "id": "product-001",
+    "name": "보리떡",
+    "category": "주력 제품",
+    "description": "오랜 전통과 최신 위생 설비에서 탄생한 대표 제품입니다. 엄선된 재료와 철저한 품질 관리로 만들어집니다. 원재료 본연의 맛을 살려 건강하고 맛있는 식품을 제공합니다.",
+    "specs": [
+      { "label": "중량", "value": "155g" },
+      { "label": "원재료", "value": "보리, 밀, 설탕, 천일염, 팩시용제, 건조효모, 식물성크림, 팥, 완두" },
+      { "label": "보관방법", "value": "냉동 보관 (-18°C 이하)" },
+      { "label": "유통기한", "value": "제조일로부터 12개월" },
+      { "label": "알레르기", "value": "[밀], [우유] 함유" }
+    ],
+    "images": [
+      "/images/products/product-001-main.jpg",
+      "/images/products/product-001-1.jpg",
+      "/images/products/product-001-2.jpg"
+    ],
+    "badge": "보리떡 프리미엄",
+    "features": [
+      "100% 품질보증된 엄선한 원재료 사용",
+      "HACCP 인증 시설에서 생산",
+      "무방부제, 무인공색소",
+      "냉동 유통 전용"
+    ]
+  }
+]
