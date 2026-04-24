@@ -19,9 +19,9 @@ const PHONE = '010-9139-4110';
 const PHONE_INTL = 'tel:+82-10-9139-4110';
 const EMAIL = 'aux97@naver.com';
 const ADDRESS = '부천시 원미구 도당동 100-7 동양테크노 203호';
-const MAP_URL = 'https://map.kakao.com/link/map/동양테크노,37.510791,126.783442';
-const MAP_LAT = 37.510791;
-const MAP_LNG = 126.783442;
+const MAP_URL = 'https://map.kakao.com/link/map/동양테크노,37.510969,126.783611';
+const MAP_LAT = 37.510969;
+const MAP_LNG = 126.783611;
 
 const contactCards = [
   {
