@@ -7,9 +7,7 @@ import './globals.css';
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'
-  ),
+  metadataBase: new URL('https://hanyang-home.vercel.app'),
   title: {
     default: '속편한 한끼 식사 | 자연의 맛, 정성의 향',
     template: '%s | 속편한 한끼 식사',
