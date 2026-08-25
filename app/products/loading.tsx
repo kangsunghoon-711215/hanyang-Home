@@ -1,10 +1,13 @@
 export default function ProductsLoading() {
   return (
     <div style={{ background: '#FBF8F3' }}>
+      {/* Hero skeleton */}
       <div
         className="animate-pulse"
         style={{ minHeight: '32vh', background: 'linear-gradient(160deg, #2A1005 0%, #3A1C08 100%)' }}
       />
+
+      {/* Grid skeleton */}
       <div className="section-padding">
         <div className="container-brand">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

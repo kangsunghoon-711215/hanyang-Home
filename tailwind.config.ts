@@ -8,6 +8,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      // ── Brand Colors ──────────────────────────────────────────
       colors: {
         primary: {
           50:  '#FDF6F0',
@@ -67,12 +68,16 @@ const config: Config = {
           muted: '#96856E',
         },
       },
+
+      // ── Brand Fonts ───────────────────────────────────────────
       fontFamily: {
         heading: ['var(--font-noto-serif-kr)', '"Nanum Myeongjo"', 'Georgia', 'serif'],
         body:    ['"Pretendard Variable"', '"Pretendard"', '-apple-system', '"Noto Sans KR"', 'sans-serif'],
         accent:  ['var(--font-cormorant)', '"Libre Baskerville"', 'Georgia', 'serif'],
         mono:    ['"JetBrains Mono"', '"Fira Code"', 'monospace'],
       },
+
+      // ── Font Sizes ────────────────────────────────────────────
       fontSize: {
         'display-2xl': ['6rem',    { lineHeight: '1.1', letterSpacing: '-0.04em' }],
         'display-xl':  ['4.5rem',  { lineHeight: '1.15', letterSpacing: '-0.03em' }],
@@ -81,14 +86,20 @@ const config: Config = {
         'display-sm':  ['2.25rem', { lineHeight: '1.3', letterSpacing: '-0.01em' }],
         'display-xs':  ['1.875rem',{ lineHeight: '1.35' }],
       },
+
+      // ── Letter Spacing ────────────────────────────────────────
       letterSpacing: {
         korean: '0.05em',
         'korean-tight': '0.02em',
       },
+
+      // ── Line Heights ──────────────────────────────────────────
       lineHeight: {
         korean: '1.9',
         'korean-tight': '1.6',
       },
+
+      // ── Spacing Extensions ────────────────────────────────────
       spacing: {
         '18': '4.5rem',
         '22': '5.5rem',
@@ -97,10 +108,14 @@ const config: Config = {
         '128': '32rem',
         '144': '36rem',
       },
+
+      // ── Border Radius ─────────────────────────────────────────
       borderRadius: {
         '4xl': '2rem',
         '5xl': '2.5rem',
       },
+
+      // ── Box Shadows (warm brown-tinted) ───────────────────────
       boxShadow: {
         'brand-sm':  '0 1px 3px rgba(138, 69, 19, 0.08), 0 1px 2px rgba(138, 69, 19, 0.04)',
         'brand':     '0 4px 12px rgba(138, 69, 19, 0.10), 0 2px 4px rgba(138, 69, 19, 0.06)',
@@ -111,6 +126,8 @@ const config: Config = {
         'glow-gold': '0 0 40px rgba(212, 160, 23, 0.25)',
         'glow-primary': '0 8px 32px rgba(138, 69, 19, 0.30)',
       },
+
+      // ── Animations ────────────────────────────────────────────
       keyframes: {
         'fade-up': {
           '0%':   { opacity: '0', transform: 'translateY(20px)' },
@@ -136,12 +153,16 @@ const config: Config = {
         shimmer:        'shimmer 2s linear infinite',
         float:          'float 4s ease-in-out infinite',
       },
+
+      // ── Background Images ─────────────────────────────────────
       backgroundImage: {
         'grain': "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E\")",
         'warm-gradient': 'linear-gradient(135deg, #FBF8F3 0%, #F4EFE7 50%, #E8DFD0 100%)',
         'primary-gradient': 'linear-gradient(135deg, #8B4513 0%, #C06A2A 50%, #D4894A 100%)',
         'gold-gradient': 'linear-gradient(135deg, #A97D10 0%, #D4A017 50%, #ECC02C 100%)',
       },
+
+      // ── Max Widths ────────────────────────────────────────────
       maxWidth: {
         '8xl': '88rem',
         '9xl': '96rem',

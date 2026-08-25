@@ -4,8 +4,10 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import './globals.css';
 
+// ── GA4 Measurement ID — set in .env.local ──────────────────
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
+// ── Site-wide metadata ──────────────────────────────────────
 export const metadata: Metadata = {
   metadataBase: new URL('https://hanyang-home.vercel.app'),
   title: {
@@ -41,20 +43,27 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <head>
+        {/* All fonts loaded via CDN — avoids next/font manifest file locking on Windows */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap"
         />
+        {/* Pretendard — loaded via jsDelivr CDN */}
         <link rel="preconnect" href="https://cdn.jsdelivr.net" />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
         />
+        {/* CSS variables for fonts */}
+        {/* dangerouslySetInnerHTML prevents React from HTML-encoding single quotes,
+            which would cause a server/client hydration mismatch */}
         <style dangerouslySetInnerHTML={{ __html: `:root { --font-noto-serif-kr: 'Noto Serif KR'; --font-cormorant: 'Cormorant Garamond'; }` }} />
       </head>
       <body className="antialiased flex flex-col min-h-screen">
+
+        {/* ── Google Analytics 4 ──────────────────────── */}
         {GA_ID && (
           <>
             <Script
@@ -71,10 +80,13 @@ export default function RootLayout({
             </Script>
           </>
         )}
+
         <Header />
+
         <main className="flex-1">
           {children}
         </main>
+
         <Footer />
       </body>
     </html>

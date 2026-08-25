@@ -1,3 +1,4 @@
+// TODO: Replace with actual certifications and quality points
 const qualityPoints = [
   {
     icon: HaccpIcon,
@@ -29,16 +30,21 @@ export default function CertificationsSection() {
   return (
     <section className="section-padding" style={{ background: '#FBF8F3' }}>
       <div className="container-brand">
+
+        {/* Section header */}
         <div className="text-center mb-14">
           <span className="tag-brand mb-4 inline-flex">품질 &amp; 위생</span>
           <h2 className="font-heading font-bold text-neutral-900 word-keep">
+            {/* TODO: Replace with actual section heading */}
             믿을 수 있는 품질을 약속합니다
           </h2>
           <p className="mt-3 font-body text-neutral-500 word-keep max-w-lg mx-auto leading-korean">
+            {/* TODO: Replace with actual description */}
             엄격한 기준과 투명한 공정으로 매 제품에 최선을 다합니다.
           </p>
         </div>
 
+        {/* 2×2 grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
           {qualityPoints.map(({ icon: Icon, title, description, highlight }) => (
             <div
@@ -49,6 +55,7 @@ export default function CertificationsSection() {
                 borderColor: highlight ? 'transparent' : '#E8DFD0',
               }}
             >
+              {/* Icon */}
               <div
                 className="w-12 h-12 rounded-xl flex items-center justify-center mb-5"
                 style={{
@@ -58,6 +65,8 @@ export default function CertificationsSection() {
               >
                 <Icon highlight={highlight} />
               </div>
+
+              {/* TODO: Replace with actual certification/quality title and description */}
               <h3
                 className="font-heading text-lg font-semibold mb-2 word-keep"
                 style={{ color: highlight ? '#FFFFFF' : '#1A1A1A' }}
@@ -70,6 +79,8 @@ export default function CertificationsSection() {
               >
                 {description}
               </p>
+
+              {/* HACCP badge decoration */}
               {highlight && (
                 <div
                   className="absolute top-4 right-4 px-2.5 py-1 rounded-full font-body text-[10px] font-bold tracking-wider"
@@ -85,6 +96,8 @@ export default function CertificationsSection() {
     </section>
   );
 }
+
+/* ── Inline SVG icons ─────────────────────────────────── */
 
 function HaccpIcon({ highlight }: { highlight: boolean }) {
   const c = highlight ? '#FBF8F3' : '#8B4513';

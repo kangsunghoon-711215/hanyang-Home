@@ -50,11 +50,12 @@ const contactCards = [
 export default function ContactPage() {
   return (
     <>
-      {/* ── Section 1: Hero ──────────────────────────────────── */}
+      {/* ── Section 1: Hero ──────────────────────────────── */}
       <section
         className="relative flex items-center overflow-hidden"
         style={{ minHeight: '42vh', background: 'linear-gradient(160deg, #1A0802 0%, #3A1C08 55%, #52280B 100%)' }}
       >
+        {/* Grain */}
         <div
           className="absolute inset-0 pointer-events-none opacity-20"
           style={{
@@ -62,10 +63,12 @@ export default function ContactPage() {
               "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E\")",
           }}
         />
+        {/* Gold top line */}
         <div
           className="absolute top-0 left-0 right-0 h-px"
           style={{ background: 'linear-gradient(90deg, transparent, rgba(212,160,23,0.5) 30%, rgba(212,160,23,0.8) 50%, rgba(212,160,23,0.5) 70%, transparent)' }}
         />
+
         <div className="relative z-10 container-brand py-28 pt-36">
           <span
             className="inline-flex items-center px-4 py-1.5 rounded-full font-body text-xs font-semibold tracking-widest uppercase mb-5"
@@ -88,7 +91,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── Section 2: Contact Info Cards ────────────────── */}
+      {/* ── Section 2: Contact Info Cards ──────────────── */}
       <section className="section-padding" style={{ background: '#FBF8F3' }}>
         <div className="container-brand">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -98,15 +101,19 @@ export default function ContactPage() {
                 className="bg-white rounded-2xl p-8 border border-neutral-200 flex flex-col"
                 style={{ boxShadow: '0 4px 12px rgba(138,69,19,0.07)' }}
               >
+                {/* Icon */}
                 <div
                   className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 flex-shrink-0"
                   style={{ background: 'linear-gradient(135deg, #FDF6F0 0%, #F8E8D8 100%)', border: '1px solid #F0CEAD' }}
                 >
                   <Icon />
                 </div>
+
                 <h2 className="font-heading text-lg font-semibold text-neutral-900 mb-3">{title}</h2>
+
                 <p className="font-body text-base font-medium text-primary mb-1 word-keep break-all">{content}</p>
                 <p className="font-body text-xs text-neutral-400 mb-6 word-keep">{sub}</p>
+
                 <div className="mt-auto">
                   <a
                     href={action.href}
@@ -125,7 +132,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* ── Section 3: Map Embed ──────────────────────────── */}
+      {/* ── Section 3: Map Embed ─────────────────────────── */}
       <section className="section-padding" style={{ background: '#F4EFE7' }}>
         <div className="container-brand">
           <div className="mb-8">
@@ -133,10 +140,12 @@ export default function ContactPage() {
             <h2 className="font-heading font-bold text-neutral-900 word-keep">위치 안내</h2>
             <p className="mt-2 font-body text-neutral-500 word-keep">{ADDRESS}</p>
           </div>
+
           <div
             className="grid grid-cols-1 md:grid-cols-2 rounded-2xl overflow-hidden border border-neutral-200"
             style={{ boxShadow: '0 4px 12px rgba(138,69,19,0.08)' }}
           >
+            {/* 약도 이미지 */}
             <div className="relative bg-white" style={{ minHeight: '400px' }}>
               <Image
                 src="/images/map-directions.jpg"
@@ -146,12 +155,13 @@ export default function ContactPage() {
                 sizes="(max-width: 768px) 100vw, 50vw"
               />
             </div>
+            {/* 카카오 지도 */}
             <KakaoMap lat={MAP_LAT} lng={MAP_LNG} markerTitle="동양테크노 203호" />
           </div>
         </div>
       </section>
 
-      {/* ── Section 4: B2B CTA ──────────────────────────────────── */}
+      {/* ── Section 4: B2B CTA ──────────────────────────── */}
       <section className="section-padding" style={{ background: '#F3F7EE' }}>
         <div className="container-brand">
           <div
@@ -179,6 +189,7 @@ export default function ContactPage() {
                 담당자가 빠르게 안내해 드립니다.
               </p>
             </div>
+
             <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
               <a
                 href={PHONE_INTL}
@@ -203,6 +214,8 @@ export default function ContactPage() {
     </>
   );
 }
+
+/* ── Inline SVG Icons ──────────────────────────────────── */
 
 function PhoneIcon({ color = '#8B4513', size = 22 }: { color?: string; size?: number }) {
   return (

@@ -31,6 +31,10 @@ yarn-error.log*
 # vercel
 .vercel
 
+# scratch / tooling artifacts
+.firecrawl/
+.playwright-mcp/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
