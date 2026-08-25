@@ -4,6 +4,8 @@ import { useEffect, useRef } from 'react';
 
 declare global {
   interface Window {
+    // Kakao Maps SDK is loaded dynamically via <script> and has no official types
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     kakao: any;
   }
 }
