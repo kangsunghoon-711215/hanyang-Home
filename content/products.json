@@ -3,7 +3,9 @@
     "id": "product-001",
     "name": "보리떡",
     "category": "주력 제품",
-    "price": null,
+    "price": 18990,
+    "listPrice": 19800,
+    "purchaseLink": "https://www.payn.co.kr/link/LNK-d5e5801f024f",
     "description": "오랜 전통과 최신 위생 설비에서 탄생한 대표 제품입니다. 엄선된 재료와 철저한 품질 관리로 만들어집니다. 원재료 본연의 맛을 살려 건강하고 맛있는 식품을 제공합니다.",
     "specs": [
       { "label": "중량", "value": "155g" },

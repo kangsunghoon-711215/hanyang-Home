@@ -49,16 +49,44 @@ export default function ProductPurchasePage({ params }: Props) {
         </div>
       </div>
 
-      {/* ── Buy frame: image + name + price + quantity + CTA ─ */}
+      {/* ── Buy frame + 상세정보: left column scrolls, right column
+          (name/price/CTA) stays pinned in view via position: sticky ─ */}
       <section className="section-padding" style={{ background: '#FBF8F3' }}>
         <div className="container-brand">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+          <style
+            dangerouslySetInnerHTML={{
+              __html: `
+            .purchase-layout { display: grid; grid-template-columns: 1fr; row-gap: 2.5rem; }
+            @media (min-width: 1024px) {
+              .purchase-layout {
+                grid-template-columns: 1fr 1fr;
+                column-gap: 4rem;
+                row-gap: 2.5rem;
+                grid-template-areas: "gallery info" "detail info";
+                align-items: start;
+              }
+              .purchase-layout .pg-gallery { grid-area: gallery; }
+              .purchase-layout .pg-detail { grid-area: detail; }
+              .purchase-layout .pg-info {
+                grid-area: info;
+                position: sticky;
+                top: 6rem;
+                align-self: start;
+              }
+            }
+          `,
+            }}
+          />
 
-            {/* Left: image gallery */}
-            <ProductImageGallery images={product.images} productName={product.name} />
+          <div className="purchase-layout">
 
-            {/* Right: name + price + quantity + buy button */}
-            <div>
+            {/* Gallery */}
+            <div className="pg-gallery">
+              <ProductImageGallery images={product.images} productName={product.name} />
+            </div>
+
+            {/* Name + price + buy button — stays visible while 상세정보 scrolls */}
+            <div className="pg-info">
               <div className="flex items-center gap-2 mb-4">
                 {product.badge && (
                   <span
@@ -79,83 +107,95 @@ export default function ProductPurchasePage({ params }: Props) {
                 {product.name}
               </h1>
 
-              <PurchaseActions productName={product.name} price={product.price} />
+              <PurchaseActions
+                productName={product.name}
+                price={product.price}
+                listPrice={product.listPrice}
+                purchaseLink={product.purchaseLink}
+              />
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ── 상세정보 ─────────────────────────────────────── */}
-      <section className="section-padding" style={{ background: '#FFFFFF' }}>
-        <div className="container-brand" style={{ maxWidth: '768px' }}>
-          <h2 className="font-heading text-2xl font-bold text-neutral-900 word-keep mb-8 text-center">
-            상세정보
-          </h2>
+            {/* 상세정보 */}
+            <div className="pg-detail">
+              <div className="rounded-2xl border overflow-hidden" style={{ borderColor: '#E8DFD0', background: '#FFFFFF' }}>
+                <h2 className="font-heading text-xl font-bold text-neutral-900 word-keep text-center pt-8 pb-6">
+                  상세정보
+                </h2>
 
-          {/* Detail panels — stacked full-width, supplied by client.
-              Plain <img>/<video>, not next/image: panels have unknown/
-              varying aspect ratios. Former GIF panels are compressed
-              to muted looping mp4. */}
-          {product.detailImages && product.detailImages.length > 0 && (
-            <div className="mb-8">
-              {product.detailImages.map((src, i) =>
-                src.endsWith('.mp4') ? (
-                  <video
-                    key={src}
-                    src={src}
-                    className="block w-full h-auto"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    aria-label={`${product.name} 상세정보 ${i + 1}`}
-                  />
-                ) : (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img
-                    key={src}
-                    src={src}
-                    alt={`${product.name} 상세정보 ${i + 1}`}
-                    loading="lazy"
-                    className="block w-full h-auto"
-                  />
-                )
-              )}
-            </div>
-          )}
+                {/* Detail panels — stacked full-width, supplied by client.
+                    Plain <img>/<video>, not next/image: panels have unknown/
+                    varying aspect ratios. Former GIF panels are compressed
+                    to muted looping mp4. */}
+                {product.detailImages && product.detailImages.length > 0 && (
+                  <div className="mb-8">
+                    {product.detailImages.map((src, i) =>
+                      src.endsWith('.mp4') ? (
+                        <video
+                          key={src}
+                          src={src}
+                          className="block w-full h-auto"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          aria-label={`${product.name} 상세정보 ${i + 1}`}
+                        />
+                      ) : (
+                        // eslint-disable-next-line @next/next/no-img-element
+                        <img
+                          key={src}
+                          src={src}
+                          alt={`${product.name} 상세정보 ${i + 1}`}
+                          loading="lazy"
+                          className="block w-full h-auto"
+                        />
+                      )
+                    )}
+                  </div>
+                )}
 
-          {/* Specs table */}
-          <div
-            className="rounded-xl overflow-hidden border"
-            style={{ borderColor: '#E8DFD0' }}
-          >
-            <div
-              className="px-5 py-3 border-b"
-              style={{ background: '#F4EFE7', borderColor: '#E8DFD0' }}
-            >
-              <h3 className="font-heading text-sm font-semibold text-neutral-700">제품 규격</h3>
-            </div>
-            <table className="w-full">
-              <tbody>
-                {product.specs.map(({ label, value }, i) => (
-                  <tr
-                    key={label}
-                    style={{ borderBottom: i < product.specs.length - 1 ? '1px solid #F4EFE7' : 'none' }}
+                {/* Specs table */}
+                <div className="px-5 pb-6 sm:px-8 sm:pb-8">
+                  <div
+                    className="rounded-xl overflow-hidden border"
+                    style={{ borderColor: '#E8DFD0' }}
                   >
-                    <td
-                      className="font-body text-sm font-semibold text-neutral-600 px-5 py-3.5 w-32"
-                      style={{ background: '#FBF8F3' }}
+                    <div
+                      className="px-5 py-3 border-b"
+                      style={{ background: '#F4EFE7', borderColor: '#E8DFD0' }}
                     >
-                      {label}
-                    </td>
-                    <td className="font-body text-sm text-neutral-700 px-5 py-3.5 bg-white">
-                      {value}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                      <h3 className="font-heading text-sm font-semibold text-neutral-700">제품 규격</h3>
+                    </div>
+                    <table className="w-full">
+                      <tbody>
+                        {product.specs.map(({ label, value }, i) => (
+                          <tr
+                            key={label}
+                            style={{ borderBottom: i < product.specs.length - 1 ? '1px solid #F4EFE7' : 'none' }}
+                          >
+                            <td
+                              className="font-body text-sm font-semibold text-neutral-600 px-5 py-3.5 w-32"
+                              style={{ background: '#FBF8F3' }}
+                            >
+                              {label}
+                            </td>
+                            <td className="font-body text-sm text-neutral-700 px-5 py-3.5 bg-white">
+                              {value}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
+
+          {/* Keeps the mobile floating buy bar (PurchaseActions) from
+              covering the last of the specs table content. */}
+          <div className="h-20 lg:hidden" aria-hidden="true" />
         </div>
       </section>
     </>
