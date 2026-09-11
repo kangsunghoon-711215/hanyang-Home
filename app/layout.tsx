@@ -9,7 +9,7 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 // ── Site-wide metadata ──────────────────────────────────────
 export const metadata: Metadata = {
-  metadataBase: new URL('https://hanyang-home.vercel.app'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3000'),
   title: {
     default: '속편한 한끼 식사 | 자연의 맛, 정성의 향',
     template: '%s | 속편한 한끼 식사',
